@@ -17,7 +17,7 @@ public class TestController {
     @Autowired ITestService testService;
 
     @RequestMapping("/boot/test/{id}")
-    TestEntity getById(@PathVariable Long id) {
+    TestEntity getById(@PathVariable("id") Long id) {
         return testService.getById(id);
     }
 }
