@@ -1,5 +1,6 @@
 package com.github.spring.family.boot.service;
 
+import com.github.spring.family.boot.mapper.entity.BaseEntity;
 import com.github.spring.family.boot.mapper.entity.TestEntity;
 
 /**
@@ -8,5 +9,5 @@ import com.github.spring.family.boot.mapper.entity.TestEntity;
  */
 public interface ITestService {
 
-    TestEntity getById(Long id);
+    TestEntity getById(BaseEntity baseEntity);
 }

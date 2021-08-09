@@ -18,6 +18,7 @@ public class TestController {
 
     @RequestMapping("/boot/test/{id}")
     TestEntity getById(@PathVariable("id") Long id) {
-        return testService.getById(id);
+        TestEntity t = TestEntity.builder().id(id).build();
+        return testService.getById(t);
     }
 }

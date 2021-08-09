@@ -6,10 +6,18 @@
         <result property="name" column="name"/>
         <result property="date" column="date"/>
     </resultMap>
-    <sql id="testSql">select * from test_entity
-        <where>id=#{value}</where>
+    <sql id="commonWhereQueryCondition">
+        <if test="id != null">
+            and id = #{id}
+        </if>
+        <if test="name != null">
+            and name = #{name}
+        </if>
     </sql>
-    <select id="getById" resultType="com.github.spring.family.boot.mapper.entity.TestEntity" parameterType="long">
-        <include refid="testSql"/>
+    <select id="getByEntity" resultType="com.github.spring.family.boot.mapper.entity.TestEntity" parameterType="long">
+        select * from test_entity
+        <where>
+            <include refid="commonWhereQueryCondition"/>
+        </where>
     </select>
 </mapper>
